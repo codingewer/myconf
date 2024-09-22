@@ -37,7 +37,7 @@
           "active": false,
           "command": "notify-send 'hey'",
           "label": "󰤄",
-          "type": "toggle",
+          "type": "button",
           "update_command": "notify-send 'Hi'"
         },
         {
@@ -62,7 +62,7 @@
           "active": false,
           "command": "swaync-client -t",
           "label": "",
-          "type": "toggle"
+          "type": "button"
         }
       ]
     },
@@ -87,7 +87,6 @@
     "title",
     "notifications",
     "buttons-grid",
-    "mpris",
     "volume"
-  ]
+    ]
 }

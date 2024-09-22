@@ -1,7 +1,7 @@
 window {
     background-color: rgba (0, 0, 0, 0.8);
     color: #eeeeee;
-    border: solid 2px #FF4C4C;
+    border: none;
     border-radius:12px; 
     margin:24px;
 }

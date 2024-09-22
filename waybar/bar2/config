@@ -1,26 +1,16 @@
 {
 	"layer": "top",
-	"output": [
-		"eDP-2",
-		"eDP-1"
-	],
+	"output": "HDMI-A-1",
 	"modules-left": [
 		"hyprland/workspaces",
-		"tray",
 		"custom/cava",
-		"mpris",
+		"mpris"
 	],
 	"modules-center": [
-		"network",
-		"clock",
-		"custom/weather",
+		"clock"
 	],
 	"modules-right": [
-		"group/expand-2",
 		"group/expand-3",
-		"cpu",
-		"memory",
-		"temperature",
 		"battery",
 		"custom/swaync",
 		"custom/power"
@@ -28,23 +18,11 @@
 	"hyprland/workspaces": {
 		"format": "{icon}",
 		"format-icons": {
-			"active": "",
-			"default": "⭘"
+			"active": "",
+			"default": "󰐽"
 		},
 		"on-scroll-up": "hyprctl dispatch workspace e+1",
 		"on-scroll-down": "hyprctl dispatch workspace e-1"
-	},
-	"network": {
-		"output": "eDP-2",
-		"format": "{ifname}",
-		"format-wifi": "  {bandwidthDownBits}   - {bandwidthUpBits} ",
-		"format-ethernet": " {bandwidthDownBits:>}  {bandwidthUpBits:>}   ",
-		"format-disconnected": "",
-		"tooltip-format": "{ifname}",
-		"tooltip-format-wifi": "{essid} ({signalStrength}%) ",
-		"tooltip-format-ethernet": "{ifname} ",
-		"tooltip-format-disconnected": "Disconnected",
-		"exec": "$HOME/.config/waybar/scripts/bandWith.sh enp2s0 && $HOME/.config/waybar/scripts/bandWith.sh wlo1"
 	},
 	"pulseaudio": {
 		"format": "{icon}   {volume}%",
@@ -86,13 +64,6 @@
 			"pulseaudio/slider"
 		]
 	},
-	"custom/weather": {
-		"format": "{}",
-		"tooltip": true,
-		"interval": 1800,
-		"exec": "source /home/codi/.config/waybar/scripts/venv/bin/activate && python /home/codi/.config/waybar/scripts/wttr.py",
-		"return-type": "json"
-	},
 	"custom/cava": {
 		"format": "{}",
 		"exec": "/home/codi/.config/waybar/scripts/cava.sh",
@@ -100,7 +71,7 @@
 	"mpris": {
 		"interval": 10,
 		"format": "{player_icon} ",
-		"format-paused": "{status_icon}   {player_icon}",
+		"format-paused": "{status_icon} <i>{dynamic}</i>",
 		"on-click-middle": "playerctl play-pause",
 		"on-click": "playerctl previous",
 		"on-click-right": "playerctl next",
@@ -143,41 +114,9 @@
 			""
 		]
 	},
-	"backlight": {
-		"format": "{icon}   {percent}%",
-		"on-scroll-down": "swayosd-client --brightness  lower 3%-",
-		"on-scroll-up": "swayosd-client --brightness raise +3%",
-		"format-icons": [
-			"",
-			""
-		]
-	},
-	"backlight/slider": {
-		"min": 5,
-		"max": 100,
-		"rotate": 0,
-		"scroll-step": 3,
-	},
-	"group/expand-2": {
-		"orientation": "horizontal",
-		"drawer": {
-			"transition-duration": 600,
-			"children-class": "not-power",
-			"transition-to-left": true,
-			"click-to-reveal": true
-		},
-		"modules": [
-			"backlight",
-			"backlight/slider"
-		]
-	},
-	"tray": {
-		"icon-size": 18,
-		"spacing": 10
-	},
 	"clock": {
 		"format": "󰨲  {:%A %B %d - %R}",
-		"format-alt": "󰨲  {:%A, %B %d, %Y (%R)}",
+		"format-alt": "󰨲 {:%A - %B %d, %Y (%R)}",
 		"tooltip-format": "<tt><small>{calendar}</small></tt>",
 		"calendar": {
 			"mode": "year",
@@ -200,20 +139,6 @@
 			"on-scroll-up": "shift_up",
 			"on-scroll-down": "shift_down"
 		},
-	},
-	"cpu": {
-		"interval": 15,
-		"format": "   {}%",
-		"on-click": "kitty htop"
-	},
-	"temperature": {
-		"format": "  {temperatureC}°C",
-		"on-click": "kitty htop"
-	},
-	"memory": {
-		"interval": 30,
-		"format": "   {}%",
-		"on-click": "kitty htop"
 	},
 	"custom/swaync": {
 		"tooltip": false,
